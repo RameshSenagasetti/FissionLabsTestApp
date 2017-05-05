@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script type="text/javascript" src='angular.js'></script>
+	    <script type="text/javascript" src='jquery.min.js'></script>
+	    <script type="text/javascript" src="highcharts.js"></script>
+	    <script src='app.js'></script>
+	</head>
+	<body ng-controller="ctrl">
+
+		Please upload a CSV file here <input type="file" file-reader="fileContent" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+		<span ng-if="links">Show Line chart for </span><button ng-repeat="link in links" ng-click="showSeriesChart(link)">{{link}}</button>
+    	<line-chart options="chartObj.chartOptions" ng-if="showChart">Placeholder for generic chart </line-chart>
+
+    	<div>
+    		<pre> Note: Plese install following dependencies:
+    			1. Node JS
+    			2. My SQL Database
+    			And update the app-server.js file with your username and password of mysql database. Run this file <b>test_series_info.sql</b> script inside my sql editor.  
+    		</pre>
+    	</div>
+	</body>
+</html>	
